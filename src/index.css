@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color: #1e293b;
+  background: #f3f6f4;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #a7f3d0;
+  color: #064e3b;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.print-receipt {
+  display: none;
+}
+
+.print-sales-report {
+  display: none;
+  page: sales-report;
+}
+
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 2mm;
+  }
+
+  @page sales-report {
+    size: landscape;
+    margin: 12mm;
+  }
+
+  body {
+    min-width: 0;
+    background: #fff;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .print-receipt,
+  .print-receipt *,
+  .print-sales-report,
+  .print-sales-report * {
+    visibility: visible !important;
+  }
+
+  .print-receipt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 54mm;
+    margin: 0;
+    padding: 1mm 0;
+    color: #000;
+    background: #fff;
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .print-receipt h2 {
+    margin: 0 0 3px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .print-receipt p {
+    margin: 2px 0;
+    text-align: center;
+  }
+
+  .print-receipt hr {
+    margin: 5px 0;
+    border: 0;
+    border-top: 1px dashed #333;
+  }
+
+  .print-receipt-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .print-receipt-total {
+    font-weight: 800;
+  }
+
+  .print-receipt-thanks {
+    margin-top: 8px !important;
+    font-weight: 700;
+  }
+
+  .print-sales-report {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    color: #0f172a;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .print-sales-report h1 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .print-sales-report p {
+    margin: 0 0 12px;
+    color: #475569;
+  }
+
+  .print-sales-report table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .print-sales-report th,
+  .print-sales-report td {
+    border: 1px solid #cbd5e1;
+    padding: 6px;
+    text-align: left;
+  }
+
+  .print-sales-report th {
+    background: #f1f5f9;
+    font-weight: 700;
+  }
+
+  .print-sales-report .print-sales-total {
+    margin-top: 12px;
+    text-align: right;
+    font-weight: 700;
+  }
+}
