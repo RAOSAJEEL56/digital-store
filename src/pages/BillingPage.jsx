@@ -106,7 +106,7 @@ export default function BillingPage() {
     const qty = Number(customItem.qty)
     const price = Number(customItem.price)
     if (!name || !Number.isFinite(qty) || qty <= 0 || !Number.isFinite(price) || price <= 0) {
-      window.alert('Custom item ke liye name, quantity aur valid price enter karein.')
+      window.alert('Custom items ke liye name, quantity aur valid price enter karein.')
       return
     }
     setCart((current) => [...current, {
